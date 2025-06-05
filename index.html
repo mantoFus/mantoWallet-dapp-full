@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mantoWallet</title>
+  <style>
+    body {
+      background: #111;
+      color: gold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .logo {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .btn {
+      background: gold;
+      color: #111;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      cursor: pointer;
+      margin-top: 30px;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+    .btn:hover {
+      background: white;
+    }
+    #walletAddress {
+      margin-top: 20px;
+      color: white;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">⚡ mantoWallet</div>
+  <p>La Wallet Web3 del Reino – Conexión a Solana, diseño dorado, poderosa interfaz.</p>
+  <button class="btn" onclick="connectWallet()">Conectar Wallet Phantom</button>
+  <div id="walletAddress"></div>
+
+  <script>
+    async function connectWallet() {
+      try {
+        const provider = window?.phantom?.solana;
+        if (!provider?.isPhantom) {
+          alert('Phantom Wallet no está instalada.');
+          return;
+        }
+
+        const resp = await provider.connect();
+        document.getElementById('walletAddress').textContent = `Conectado a: ${resp.publicKey.toString()}`;
+      } catch (err) {
+        console.error('Error al conectar con Phantom:', err);
+        alert('Hubo un error al conectar.');
+      }
+    }
+  </script>
+</body>
+</html>
