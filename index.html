@@ -12,6 +12,9 @@
       text-align: center;
       padding: 50px;
     }
+    nav {
+      margin-bottom: 30px;
+    }
     .logo {
       font-size: 3rem;
       font-weight: bold;
@@ -19,18 +22,19 @@
     .btn {
       background: gold;
       color: #111;
-      padding: 15px 30px;
-      font-size: 1.2rem;
+      padding: 12px 24px;
+      font-size: 1rem;
       border: none;
       cursor: pointer;
-      margin-top: 30px;
+      margin: 5px;
       border-radius: 10px;
       transition: 0.3s ease;
+      display: inline-block;
     }
     .btn:hover {
       background: white;
     }
-    #walletAddress {
+    #walletAddress, #paymentStatus {
       margin-top: 20px;
       color: white;
       font-size: 1rem;
@@ -38,10 +42,28 @@
   </style>
 </head>
 <body>
-  <div class="logo">⚡ mantoWallet</div>
-  <p>La Wallet Web3 del Reino – Conexión a Solana, diseño dorado, poderosa interfaz.</p>
-  <button class="btn" onclick="connectWallet()">Conectar Wallet Phantom</button>
-  <div id="walletAddress"></div>
+  <nav>
+    <a class="btn" href="/whitepaper">White Paper</a>
+    <a class="btn" href="/one-page">One Page</a>
+    <a class="btn" href="/mina">Mina</a>
+    <a class="btn" href="https://www.whitepapermanto.com">whitepapermanto.com</a>
+  </nav>
+
+  <div id="workspaceInfo"></div>
+
+  <section id="wallet">
+    <div class="logo">⚡ mantoWallet</div>
+    <p>La Wallet Web3 del Reino – Conexión a Solana, diseño dorado, poderosa interfaz.</p>
+    <button class="btn" onclick="connectWallet()">Conectar Wallet Phantom</button>
+    <div id="walletAddress"></div>
+  </section>
+
+  <section id="payments">
+    <h2>Pasarela de Pagos Híbrida</h2>
+    <p>Realice pagos con tarjeta o criptomonedas usando nuestro gateway.</p>
+    <button class="btn" onclick="initiatePayment()">Iniciar Pago</button>
+    <div id="paymentStatus"></div>
+  </section>
 
   <script>
     async function connectWallet() {
@@ -59,6 +81,25 @@
         alert('Hubo un error al conectar.');
       }
     }
+
+    async function initiatePayment() {
+      try {
+        const response = await fetch('/api/pay', { method: 'POST' });
+        const data = await response.json();
+        document.getElementById('paymentStatus').textContent = data.message;
+      } catch (err) {
+        console.error('Error iniciando el pago:', err);
+        alert('No se pudo iniciar el pago.');
+      }
+    }
+
+    // Mostrar información del dominio de Google Workspace configurado
+    fetch('/api/google-workspace')
+      .then(r => r.json())
+      .then(data => {
+        const el = document.getElementById('workspaceInfo');
+        el.textContent = `Dominio: ${data.domain} – Contacto: ${data.contact}`;
+      });
   </script>
 </body>
 </html>
