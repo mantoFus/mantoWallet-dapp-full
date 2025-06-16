@@ -12,3 +12,18 @@ node index.js
 ```
 
 These endpoints return stub responses and should be replaced with real integrations.
+
+### Environment variables
+
+The server reads the following optional variables:
+
+- `GOOGLE_WORKSPACE_DOMAIN` – defaults to `asluzmanto.shop`
+- `GOOGLE_WORKSPACE_CONTACT` – defaults to `contacto@asluzmanto.shop`
+
+Set them to match your Google Workspace configuration if different.
+
+### Available endpoints
+
+- `POST /api/pay` – hybrid fiat/crypto payment stub
+- `GET /api/google-auth` – placeholder OAuth flow
+- `GET /api/google-workspace` – returns configured domain and contact
