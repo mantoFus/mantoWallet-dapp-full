@@ -27,3 +27,7 @@ Set them to match your Google Workspace configuration if different.
 - `POST /api/pay` – hybrid fiat/crypto payment stub
 - `GET /api/google-auth` – placeholder OAuth flow
 - `GET /api/google-workspace` – returns configured domain and contact
+
+## Frontend dependencies
+
+- [DOMPurify](https://github.com/cure53/DOMPurify) via CDN sanitizes team markdown before inserting into the page.
