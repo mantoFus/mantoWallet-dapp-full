@@ -116,16 +116,16 @@
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.2/purify.min.js"></script>
-<script>
-  fetch("team.md")
-    .then(r => r.text())
-    .then(text => {
-      const html = marked.parse(text);
-      document.getElementById("teamContainer").innerHTML = DOMPurify.sanitize(html);
-    });
-</script>
-<script type="text/javascript">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.2/purify.min.js"></script>
+  <script>
+    fetch('team.md')
+      .then(r => r.text())
+      .then(text => {
+        const html = marked.parse(text);
+        document.getElementById('teamContainer').innerHTML = DOMPurify.sanitize(html);
+      });
+  </script>
+  <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
     }
