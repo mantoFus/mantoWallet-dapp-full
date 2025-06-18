@@ -3,133 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mantoWallet</title>
-  <style>
-    body {
-      background: #000;
-      color: gold;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      text-align: center;
-    }
-    header {
-      padding: 40px 20px;
-    }
-    .logo-img {
-      display: block;
-      margin: 0 auto;
-      max-width: 200px;
-    }
-    .btn {
-      background: gold;
-      color: #111;
-      padding: 15px 30px;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      border-radius: 10px;
-      transition: 0.3s ease;
-      display: inline-block;
-      margin: 15px;
-    }
-    .btn:hover {
-      background: white;
-    }
-    #walletAddress {
-      color: white;
-      margin-top: 10px;
-    }
-    .section {
-      padding: 60px 20px;
-    }
-    .vision {
-      background: #111;
-      color: gold;
-    }
-    .payments {
-      background: #222;
-      color: white;
-    }
-    .team {
-      background: #111;
-      color: white;
-    }
-    .team-member {
-      margin: 20px 0;
-    }
-    .team-member h3 {
-      color: gold;
-      margin-bottom: 5px;
-    }
-    #google_translate_element {
-      margin-top: 10px;
-      color: white;
-    }
-  </style>
+  <title>manto.es - Moneda MT</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="google_translate_element">Traducir esta página</div>
   <header>
-    <img src="assets/images/logo.png" alt="manto MT logo" class="logo-img">
-    <p>La Wallet Web3 del Reino – Conexión a Solana, diseño dorado y poderoso.</p>
-    <button class="btn" onclick="connectWallet()">Conectar Wallet Phantom</button>
-    <a class="btn" href="whitepaper.pdf" download>Descargar White Paper</a>
-    <div id="walletAddress"></div>
+    <h1 id="title">Bienvenido a manto.es</h1>
+    <nav>
+      <ul>
+        <li><a href="#wallet" data-i18n="wallet">Wallet</a></li>
+        <li><a href="#payments" data-i18n="payments">Pasarela de Pagos</a></li>
+        <li><a href="#whitepaper" data-i18n="whitepaper">Whitepaper</a></li>
+        <li><a href="#ecosystem" data-i18n="ecosystem">Ecosistema</a></li>
+      </ul>
+      <div id="language-switch">
+        <button data-lang="es">ES</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </nav>
   </header>
-
-  <section class="section vision">
-    <h2>Visión del Reino manto</h2>
-    <p>Plataforma espiritual y tecnológica uniendo reinos en un ecosistema de valor.</p>
-    <a class="btn" href="https://mantomineral.io" target="_blank">Respaldo Real – JGE-11221</a>
-    <a class="btn" href="https://whitepapermanto.com" target="_blank">White Paper manto</a>
-  </section>
-
-  <section class="section payments">
-    <h2>Pasarela de pagos híbrida</h2>
-    <p>Aceptamos tarjetas de crédito, USDC, Solana y manto MT.</p>
-  </section>
-
-  <section class="section team">
-    <h2>Equipo manto MT</h2>
-    <div id="teamContainer"></div>
-  </section>
-  <div class="logo">⚡ mantoWallet</div>
-  <p>La Wallet Web3 del Reino – Conexión a Solana, diseño dorado, poderosa interfaz.</p>
-  <button class="btn" onclick="connectWallet()">Conectar Wallet Phantom</button>
-  <a class="btn" href="whitepaper.pdf" download>White Paper</a>
-  <div id="walletAddress"></div>
-
-  <script>
-    async function connectWallet() {
-      try {
-        const provider = window.solana;
-        if (!provider?.isPhantom) {
-          alert('Phantom Wallet no está instalada.');
-          return;
-        }
-        const resp = await provider.connect();
-        document.getElementById('walletAddress').textContent = `Conectado a: ${resp.publicKey.toString()}`;
-      } catch (err) {
-        console.error('Error al conectar con Phantom:', err);
-        alert('Hubo un error al conectar.');
-      }
-    }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.2/purify.min.js"></script>
-<script>
-  fetch("team.md")
-    .then(r => r.text())
-    .then(text => {
-      const html = marked.parse(text);
-      document.getElementById("teamContainer").innerHTML = DOMPurify.sanitize(html);
-    });
-</script>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
-    }
-  </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <main>
+    <section id="wallet">
+      <h2 data-i18n="walletHeading">Conecta tu Wallet manto MT</h2>
+      <button id="connectWallet" data-i18n="connectBtn">Conectar con Phantom</button>
+    </section>
+    <section id="payments">
+      <h2 data-i18n="paymentsHeading">Pasarela Híbrida de Pagos</h2>
+      <p data-i18n="paymentsDesc">Opera con MT y monedas tradicionales de forma segura.</p>
+      <button id="payNow" data-i18n="payBtn">Pagar</button>
+    </section>
+    <section id="whitepaper">
+      <h2 data-i18n="whitepaperHeading">Whitepaper</h2>
+      <a href="whitepaper.pdf" data-i18n="download">Descargar documento</a>
+    </section>
+    <section id="ecosystem">
+      <h2 data-i18n="ecosystemHeading">Links del Ecosistema</h2>
+      <ul>
+        <li><a href="https://twitter.com/manto">Twitter</a></li>
+        <li><a href="https://discord.com/manto">Discord</a></li>
+        <li><a href="https://github.com/mantoFus">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 manto MT</p>
+  </footer>
+<script src="main.js"></script>
 </body>
 </html>
