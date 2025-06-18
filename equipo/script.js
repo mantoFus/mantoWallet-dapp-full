@@ -1,4 +1,3 @@
-// Placeholder for future team interactions
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.team-card').forEach(card => {
     card.addEventListener('mouseenter', () => {

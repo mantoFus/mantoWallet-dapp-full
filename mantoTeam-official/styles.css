@@ -1,7 +1,7 @@
 body {
   background: radial-gradient(circle at top, #222, #000);
   color: #ffd700;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   text-align: center;
 }
@@ -14,6 +14,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .team-card {
@@ -43,4 +44,9 @@ header {
   .team-card {
     width: 90%;
   }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
