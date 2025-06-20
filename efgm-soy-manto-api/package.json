@@ -1,0 +1,17 @@
+{
+  "name": "efgm-soy-manto-api",
+  "version": "1.0.0",
+  "description": "SOY MANTO API",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.0",
+    "swagger-ui-express": "^5.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "dotenv": "^16.3.1"
+  }
+}
