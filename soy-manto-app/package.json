@@ -1,0 +1,14 @@
+{
+  "name": "soy-manto-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  }
+}
