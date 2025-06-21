@@ -12,7 +12,7 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Soy Manto API',
+      title: 'Soy Manto APP',
       version: '1.0.0',
     },
   },
@@ -23,7 +23,7 @@ const specs = swaggerJSDoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to Soy Manto API' });
+  res.json({ message: 'Welcome to Soy Manto APP' });
 });
 
 app.listen(port, () => {

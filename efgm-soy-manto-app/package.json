@@ -1,7 +1,7 @@
 {
-  "name": "efgm-soy-manto-api",
+  "name": "efgm-soy-manto-app",
   "version": "1.0.0",
-  "description": "SOY MANTO API",
+  "description": "SOY MANTO APP",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js"
